@@ -45,7 +45,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        window.location.href="tempInputPage.html";
+        window.location.href="about.html";
         
         
     }
