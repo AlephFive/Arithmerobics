@@ -2,7 +2,7 @@ function $(x) {return document.getElementById(x);}
 
 function firstRunInit(){
     localStorage.setItem("lastMode", "timer")
-    initDatabase();
+    //initDatabase();
 }
 
 //MAINPAGE
