@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Brian Ma'thematical Arithmerobics</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <script src="common.js"></script>
+        <script>
+            var isDecimal = false;
+            Init();
+            
+            
+        </script>
+        
+        
+
+    </head>
+    <body>
+                <table style="width:100%" align="center">
+                    <tr>
+                        <td colspan="4" id="timer">60</td>
+                    </tr>
+                    <tr>
+                        <td id= "firstNumber"></td>
+                        <td id= "operator"></td>
+                        <td id= "secondNumber"></td>
+                        <td>=</td>
+                    </tr>
+                    <tr>
+                        
+                        <td colspan="4" id="displayBox"></td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="input(this, 7)" onmouseup="mDown(this)">7</td>
+                        <td onmousedown="input(this, 8)" onmouseup="mDown(this)">8</td> 
+                        <td onmousedown="input(this, 9)" onmouseup="mDown(this)">9</td>
+                        <td onmousedown="input(this, 'flip')" onmouseup="mDown(this)">+</td>
+                        
+                    </tr>
+                    <tr>
+                        <td onmousedown="input(this, 4)" onmouseup="mDown(this)">4</td>
+                        <td onmousedown="input(this, 5)" onmouseup="mDown(this)">5</td> 
+                        <td onmousedown="input(this, 6)" onmouseup="mDown(this)">6</td>
+                        <td rowspan="2" onmousedown="input(this, 'backspace')" onmousedown="mDown(this)">Del</td>
+                        
+                    </tr>
+                    <tr>
+                        <td onmousedown="input(this, 1)" onmouseup="mDown(this)">1</td>
+                        <td onmousedown="input(this, 2)" onmouseup="mDown(this)">2</td> 
+                        <td onmousedown="input(this, 3)" onmouseup="mDown(this)">3</td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td onmousedown="input(this, 0)" onmouseup="mDown(this)">0</td> 
+                        <td></td>
+                        <td onmousedown="input(this, '.')" onmouseup="mDown(this)">.</td>
+                    </tr>
+                </table>
+        <script>
+            var subject = parseInt(localStorage.getItem("subject"));
+            
+            switch(subject){
+                case 1:
+                    updateAdd(1);
+                    break;
+                case 2:
+                    updateSub(1);
+                    break;
+                default:
+                    updateAdd(1);
+            }
+            
+            StartCounter();
+            
+            
+        </script>
+    </body>
+</html>

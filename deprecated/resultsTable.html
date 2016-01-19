@@ -1,0 +1,21 @@
+</head>
+    <body>
+        
+        <table style="width:100%" align="right">
+            <td id= "questions" style="width:45%">a</td>
+            <td id= "answers" style="width:45%">b</td>
+            <td id= "validity" style="width:10%">c</td>
+        </table>
+        
+        <script>
+            document.getElementById("questions").innerHTML = localStorage.getItem("IQuestion");
+            var answerResult = localStorage.getItem("IAnswer");
+            var validityResult = localStorage.getItem("IValidity");
+            answerResult += ' ';
+            validityResult += ' ';
+            document.getElementById("answers").innerHTML = answerResult;
+            document.getElementById("validity").innerHTML = validityResult;
+            
+        </script>
+    </body>
+</html>

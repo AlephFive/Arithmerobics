@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "com.phonegap.example"
+        versionCode = "10" 
+        version     = "0.0.5" >
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Arithmerobics</name>
+    
+    <preference name="orientation" value="portrait" />
+    
+    <platform name="ios" >
+        <preference name="target-device" value="handset" />
+        <preference name="prerendered-icon" value="true" />
+    </platform>
+        
+    <platform name="android" >
+        
+    </platform>
+        
+        
+    <description>
+        Practice mental math skills. 
+    </description>
+
+    <author href="https://build.phonegap.com" email="support@phonegap.com">
+        Brian Ma 
+    </author>
+
+</widget>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <title>Brian Ma'thematical Arithmerobics</title>
+        <meta name="description" content="An interactive getting started guide for Brackets.">
+        <link rel="stylesheet" href="main.css">
+        <script src="jquery-2.1.4.min.js"></script>
+        <script src="Chart.min.js"></script>
+        <script>
+        var optionType = 1;
+        </script>
+    </head>
+    <body>
+        <table style="width:100%" align="center">
+                    <tr> 
+                        <td colspan="4">Arithmerobics</td>
+                    </tr>
+                        <canvas id="barChart" height="300" width="300"></canvas>
+                    <tr>
+                        <td id="optionTimer" onmousedown="option(this, 1)">Timer</td>
+                        <td id="optionStrikes" onmousedown="option(this, 2)">3Strikess</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="goToPage(1)">+</td>
+                        <td onmousedown="goToPage(2)">-</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="goToPage(2)">*</td>
+                        <td onmousedown="goToPage(2)">/</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="goToPage(2)">root</td>
+                        <td onmousedown="goToPage(2)">exponents</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="window.location.href="tutorials.html"">tutorial</td>
+                        <td onmousedown="window.location.href="statistics.html"">statistics</td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="window.location.href="customGameChoice.html"">Custom Game</td>
+                        <td onmousedown="window.location.href="about.html"">about</td>
+                    </tr>
+            
+                    
+                </table>
+        <script>
+            optionTimer.style.backgroundColor="#1ec5e5";
+            
+            
+            
+            var dateAndScore;
+            var dateScore;
+            
+            
+            function convertIntoArray(){
+                var objectToConvert = localStorage.getItem("Aggregate");
+                var tempArray = objectToConvert.split(',');
+                
+                for(i=0; i < tempArray.length; i+=2){
+                    if(typeof parseInt(tempArray[i]) != 'undefined'){
+                        dateForScore.push(tempArray[i]);
+                    }
+                    else{
+                        dateForScore = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+                    }
+                    
+                }
+                
+                for(i=1; i < tempArray.length; i+=2){
+                    if(typeof parseInt(tempArray[i]) != 'undefined'){
+                        dateScore.push(parseInt(tempArray[i]));
+                    }
+                    else{
+                        dateScore.push(0);
+                    }                    
+                }
+                
+            }
+            
+            convertIntoArray();
+            
+            var barChartData = {
+                labels: dateAndScore,
+                datasets: [{ fillColor: "lightblue", strokeColor: "blue", data: dateScore }]
+            };
+            var mybarChartLoc = new Chart(document.getElementById("barChart").getContext("2d")).Bar
+(barChartData);
+            
+            function goToPage(subject){
+                localStorage.setItem("subject", subject);
+                if(optionType == 1){
+                    window.location.href="tempInputPage.html";
+                }
+                if(optionType == 2){
+                    window.location.href="strikesInputPage.html";
+                }
+            }
+            function option(obj, info){
+                obj.style.backgroundColor="#1ec5e5";
+                if(info == 1){
+                    optionStrikes.style.backgroundColor = "#D94A38";
+                    optionType = 1;
+                }
+                if(info == 2){
+                    optionTimer.style.backgroundColor = "#D94A38";
+                    optionType = 2;
+                }
+            }
+        </script>
+    </body>
+</html>
