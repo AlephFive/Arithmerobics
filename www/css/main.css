@@ -1,0 +1,18 @@
+td {
+    background-color:#D94A38;
+    width: 25%;
+    height: 12.5vh;
+    text-align: center;
+    }
+#displayBox {
+    background-color: aquamarine;
+    height: 15vh;
+    text-align: left;
+    text-indent: 10%;
+    }
+#timer {
+    background-color: aquamarine;
+    height: 15vh;
+    text-align: right;
+    text-indent: -10%;
+    }
