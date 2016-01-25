@@ -32,7 +32,22 @@ function refreshGameModeOptionColour(){
 }
 
 function initDatabase(){
+    //get current date
+    var d = new Date(year, month, day);
+    d.setDate(d.getDate() - 1);
     
+    //initialise the database using lots of zeros
+    var initDataBase = [
+        {"date":d, "tAdd":"0", "sAdd":"0", "tSub":"0", "sSub":"0", "tX":"0", "sX":"0", "tDiv":"0", "sDiv":"0", "tRoot":"0", "sRoot":"0", "tExp":"0", "sExp":"0", "extraPoints":"0"}
+    ];
+    
+    for(i = 0; i < 1; i++){
+        d.setDate(d.getDate() + 1);
+        
+        initDataBase.push({"date":d, "tAdd":"0", "sAdd":"0", "tSub":"0", "sSub":"0", "tX":"0", "sX":"0", "tDiv":"0", "sDiv":"0", "tRoot":"0", "sRoot":"0", "tExp":"0", "sExp":"0", "extraPoints":"0"});
+    }
+    
+    localStorage.setItem("mainData", initDataBase);
 }
 
 function prepGame(gamefile){
