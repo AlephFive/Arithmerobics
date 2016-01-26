@@ -10,6 +10,7 @@ function Init(){
     localStorage.setItem("ICorrect", iCorrect);
     localStorage.setItem("Score", 0);
 }
+
 function InitStrikes(){
     clearQuestionBanks();
     var score = 0;
