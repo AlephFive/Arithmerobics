@@ -2,7 +2,7 @@ function $(x) {return document.getElementById(x);}
 
 function firstRunInit(){
     localStorage.setItem("lastMode", "timer")
-    //initDatabase();
+    initDatabase();
 }
 
 //MAINPAGE
@@ -56,6 +56,46 @@ function initDatabase(){
     }
     
     localStorage.setItem("mainData", initDataBase);
+    
+    
+    //init gameFiles
+    var addOnlyFile = [{"gamemode":"add", "level":"1", "run":"true"},
+                       {"gamemode":"add", "level":"2", "run":"true"},
+                       {"gamemode":"add", "level":"3", "run":"true"},
+                       {"gamemode":"add", "level":"4", "run":"true"},
+                       {"gamemode":"add", "level":"5", "run":"true"}]
+    var subOnlyFile = [{"gamemode":"sub", "level":"1", "run":"true"},
+                       {"gamemode":"sub", "level":"2", "run":"true"},
+                       {"gamemode":"sub", "level":"3", "run":"true"},
+                       {"gamemode":"sub", "level":"4", "run":"true"},
+                       {"gamemode":"sub", "level":"5", "run":"true"}]
+    var xOnlyFile = [{"gamemode":"x", "level":"1", "run":"true"},
+                       {"gamemode":"x", "level":"2", "run":"true"},
+                       {"gamemode":"x", "level":"3", "run":"true"},
+                       {"gamemode":"x", "level":"4", "run":"true"},
+                       {"gamemode":"x", "level":"5", "run":"true"}]
+    var divOnlyFile = [{"gamemode":"div", "level":"1", "run":"true"},
+                       {"gamemode":"div", "level":"2", "run":"true"},
+                       {"gamemode":"div", "level":"3", "run":"true"},
+                       {"gamemode":"div", "level":"4", "run":"true"},
+                       {"gamemode":"div", "level":"5", "run":"true"}]
+    var rootOnlyFile = [{"gamemode":"root", "level":"1", "run":"true"},
+                       {"gamemode":"root", "level":"2", "run":"true"},
+                       {"gamemode":"root", "level":"3", "run":"true"},
+                       {"gamemode":"root", "level":"4", "run":"true"},
+                       {"gamemode":"root", "level":"5", "run":"true"}]
+    var expOnlyFile = [{"gamemode":"exp", "level":"1", "run":"true"},
+                       {"gamemode":"exp", "level":"2", "run":"true"},
+                       {"gamemode":"exp", "level":"3", "run":"true"},
+                       {"gamemode":"exp", "level":"4", "run":"true"},
+                       {"gamemode":"exp", "level":"5", "run":"true"}]
+    
+    localStorage.setItem("addOnlyFile", addOnlyFile);
+    localStorage.setItem("subOnlyFile", subOnlyFile);
+    localStorage.setItem("xOnlyFile", xOnlyFile);
+    localStorage.setItem("divOnlyFile", divOnlyFile);
+    localStorage.setItem("rootOnlyFile", rootOnlyFile);
+    localStorage.setItem("expOnlyFile", expOnlyFile);
 }
 
 function prepGame(gamefile){
@@ -69,7 +109,7 @@ function prepGame(gamefile){
         window.location.href="gamePageStrikes.html"
     }
     if(localStorage.lastMode == "free"){
-        indow.location.href="gamePageFree.html"
+        window.location.href="gamePageFree.html"
     }
 }
 
