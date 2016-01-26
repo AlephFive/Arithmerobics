@@ -29,6 +29,14 @@ function refreshGameModeOptionColour(){
         $(optionTimer).style.backgroundColor="DarkGrey";
     }
     
+    if(localStorage.lastMode == "free"){
+        //select
+        $(optionFree).style.backgroundColor="DodgerBlue";
+        
+        //deselect
+        $(optionFree).style.backgroundColor="DarkGrey";
+    }
+    
 }
 
 function initDatabase(){
@@ -60,24 +68,17 @@ function prepGame(gamefile){
     if(localStorage.lastMode == "strikes"){
         window.location.href="gamePageStrikes.html"
     }
+    if(localStorage.lastMode == "free"){
+        indow.location.href="gamePageFree.html"
+    }
 }
 
 
 
 //INGAME
-function win(file) {
-    var reader = new FileReader();
-    reader.onloadend = function(evt) {
-        console.log("read success");
-        console.log(evt.target.result);
-    };
-    reader.readAsText(file);
-};
 
-var fail = function(evt) {
-    console.log(error.code);
-};
 
-entry.file(win, fail);
+
+
 
 //CREATING CUSTOM GAME
