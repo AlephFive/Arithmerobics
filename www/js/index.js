@@ -45,8 +45,21 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        window.location.href="screens/main.html";
         
+        var addOnlyFile = [{"gamemode":"add", "run":"true"}];
+        var subOnlyFile = [{"gamemode":"sub", "run":"true"}];
+        var xOnlyFile = [{"gamemode":"x", "run":"true"}];
+        var divOnlyFile = [{"gamemode":"div", "run":"true"}];
+        var rootOnlyFile = [{"gamemode":"root", "run":"true"}];
+        var expOnlyFile = [{"gamemode":"exp", "run":"true"}];
+    
+        localStorage.setItem("addOnlyFile", JSON.stringify(addOnlyFile));
+        localStorage.setItem("subOnlyFile", JSON.stringify(subOnlyFile));
+        localStorage.setItem("xOnlyFile", JSON.stringify(xOnlyFile));
+        localStorage.setItem("divOnlyFile", JSON.stringify(divOnlyFile));
+        localStorage.setItem("rootOnlyFile", JSON.stringify(rootOnlyFile));
+        localStorage.setItem("expOnlyFile", JSON.stringify(expOnlyFile));
+        window.location.href="main.html";
         
     }
 };

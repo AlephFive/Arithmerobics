@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <title>Arithmerobics</title>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="description" content="Fun with practicing math stuff">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/Chart.min.js"></script>
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script src="js/main.js"></script>
+        <script>
+            if(localStorage.getItem("lastMode") == "timer"||localStorage.getItem("lastMode") == "strikes"||localStorage.getItem("lastMode") == "free"){
+                //alert(localStorage.getItem("lastMode"));
+            }
+            else{
+                firstRunInit();
+                //alert("firstrunInitsucess");
+            };
+            refreshGameModeOptionColour();
+        </script>
+    </head>
+    <body>
+        <table style="width:100%" align="center">
+                    <tr> 
+                        <td colspan="4">Arithmerobics</td>
+                    </tr>
+                        <canvas id="barChart" height="300" width="300"></canvas>
+                    <tr>
+                        <td id="optionTimer" onmouseup="chooseGameMode(this, 'timer')">Timer</td>
+                        <td id="optionStrikes" onmouseup="chooseGameMode(this, 'strikes')">3Strikes</td>
+                        <td id="optionFree" onmouseup="chooseGameMode(this, 'free')">Free</td>
+                    </tr>
+                    <tr>
+                        <td onmouseup="prepGame('addOnly')">+</td>
+                        <td onmouseup="prepGame('subOnly')">-</td>
+                    </tr>
+                    <tr>
+                        <td onmouseup="prepGame('xOnly')">*</td>
+                        <td onmouseup="prepGame('divOnly')">/</td>
+                    </tr>
+                    <tr>
+                        <td onmouseup="prepGame('rootOnly')">root</td>
+                        <td onmouseup="prepGame('expOnly')">exponents</td>
+                    </tr>
+                    <tr>
+                        <td onmouseup="window.location.href='tutorials.html'">tutorial</td>
+                        <td onmouseup="window.location.href='statistics.html'">statistics</td>
+                    </tr>
+                    <tr>
+                        <td onmouseup="window.location.href='customGameChoice.html'">Custom Game</td>
+                        <td onmouseup="window.location.href='about.html'">about</td>
+                    </tr>
+            
+                    
+                </table>
+        <script>
+            refreshGameModeOptionColour();
+            
+        </script>
+    </body>
+</html>
