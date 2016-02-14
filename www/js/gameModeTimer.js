@@ -5,7 +5,7 @@ var gameFile;
 var score = 0;
 var currentLevel = 1;
 var isDecimal = false;
-//var resultSheet = [];
+var resultSheet = [];
 
 function initTimerGame(){
     //load gameFile
@@ -40,7 +40,7 @@ function initTimerGame(){
 function StartCounter(){
 
     var myCounter = new Countdown({  
-        seconds: 50,  // number of seconds to count down
+        seconds: 10,  // number of seconds to count down
         onUpdateStatus: function(sec){
             console.log(sec);
             $("timer").innerHTML = sec;
@@ -141,7 +141,11 @@ function checkAnswer(){
 }
 
 function isCorrect(){
-    //resultSheet.push({"question":$("questionBox").innerHTML, "answer":$("displayBox").innerHTML},);
+    var q = $("questionBox").innerHTML;
+    var a = $("displayBox").innerHTML;
+    var resultSheetString = {"question":q, 'answer':a, "correct":"true"};
+    alert(JSON.stringify(resultSheetString));
+    resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Correct";
     newQuestion();
     incrementScore(1);
@@ -149,12 +153,12 @@ function isCorrect(){
 
 function incrementScore(number){
     score += number;
-    alert(score);
+    $("scoreBox").innerHTML = score;
 }
 
 function endGame(){
     //save score info to local storage to be displayed in results page.
-    //localStorage.setItem("results", JSON.stringify(resultSheet));
+    localStorage.setItem("results", JSON.stringify(resultSheet));
     localStorage.setItem("resultScore", score);
     window.location.href = 'results.html';
 }
@@ -189,6 +193,7 @@ function newQuestion(){
     }
     
     $("questionBox").innerHTML = qString;
+    
     
 }
 
