@@ -18,7 +18,8 @@
         
 
     </head>
-    <body onLoad="buildHtmlTable('#excelDataTable')">
+    <body>
+        
         
         <table style="width:100%" align="center">
             <tr>
@@ -30,7 +31,7 @@
                 <td onmouseup="retry()">Retry</td>
             </tr>   
         </table>
-        <table id="excelDataTable" border="1"></table>
+        <iframe src="resultsTable.html" width=100% height=70vh></iframe>
         
         
         
@@ -41,48 +42,8 @@
             document.getElementById("score").innerHTML = localStorage.getItem("resultScore");
             
             
-            var myList = [{"question":"2", 'answer':"2", "correct":"true"},
-						{"question":"2", 'answer':"2", "correct":"true"}];
-                //JSON.parse(localStorage.getItem("results"));
+            
 
-// Builds the HTML Table out of myList.
-function buildHtmlTable(selector) {
-    var columns = addAllColumnHeaders(myList, selector);
-
-    for (var i = 0 ; i < myList.length ; i++) {
-        var row$ = $('<tr/>');
-        for (var colIndex = 0 ; colIndex < columns.length ; colIndex++) {
-            var cellValue = myList[i][columns[colIndex]];
-
-            if (cellValue == null) { cellValue = ""; }
-
-            row$.append($('<td/>').html(cellValue));
-        }
-        $(selector).append(row$);
-    }
-}
-
-// Adds a header row to the table and returns the set of columns.
-// Need to do union of keys from all records as some records may not contain
-// all records
-function addAllColumnHeaders(myList)
-{
-    var columnSet = [];
-    var headerTr$ = $('<tr/>');
-
-    for (var i = 0 ; i < myList.length ; i++) {
-        var rowHash = myList[i];
-        for (var key in rowHash) {
-            if ($.inArray(key, columnSet) == -1){
-                columnSet.push(key);
-                headerTr$.append($('<th/>').html(key));
-            }
-        }
-    }
-    $(selector).append(headerTr$);
-
-    return columnSet;
-}
             
         </script>
     </body>

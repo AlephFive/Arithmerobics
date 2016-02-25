@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <title>gameModeTimer page</title>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <meta name="description" content="Game mode timer">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/gameModeStrikes.js"></script>
+        <script>
+            
+            //alert("in headscript");
+            //alert("set isdeckbbhbhkbkb");
+            initFreeGame();
+            
+            
+        </script>
+        
+        
+
+    </head>
+    <body>
+                <table style="width:100%" align="center">
+                    <tr>
+                        <td id="scoreBox">0</td>
+                        <td colspan="3" id="strikeCounter"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" onmousedown="endGame()">Exit</td>
+                        
+                    </tr>
+                    <tr>
+                        
+                        <td colspan="4" id="displayBox"></td>
+                    </tr>
+                    <tr>
+                        <td onmousedown="input(this, 7)" onmouseup="mDown(this)">7</td>
+                        <td onmousedown="input(this, 8)" onmouseup="mDown(this)">8</td> 
+                        <td onmousedown="input(this, 9)" onmouseup="mDown(this)">9</td>
+                        <td id= "flipper" onmousedown="input(this, 'flip')" onmouseup="mDown(this)">+</td>
+                        
+                    </tr>
+                    <tr>
+                        <td onmousedown="input(this, 4)" onmouseup="mDown(this)">4</td>
+                        <td onmousedown="input(this, 5)" onmouseup="mDown(this)">5</td> 
+                        <td onmousedown="input(this, 6)" onmouseup="mDown(this)">6</td>
+                        <td onmousedown="input(this, 'backspace')" onmouseup="mDown(this)">Del</td>
+                        
+                    </tr>
+                    <tr>
+                        <td onmousedown="input(this, 1)" onmouseup="mDown(this)">1</td>
+                        <td onmousedown="input(this, 2)" onmouseup="mDown(this)">2</td> 
+                        <td onmousedown="input(this, 3)" onmouseup="mDown(this)">3</td>
+                        <td onmousedown="input(this, 'check')" onmouseup="mDown(this)">Check</td>
+                        
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td onmousedown="input(this, 0)" onmouseup="mDown(this)">0</td> 
+                        <td></td>
+                        <td onmousedown="input(this, '.')" onmouseup="mDown(this)">.</td>
+                    </tr>
+                </table>
+        <script>
+
+            
+            
+            newQuestion();
+            
+        </script>
+    </body>
+</html>

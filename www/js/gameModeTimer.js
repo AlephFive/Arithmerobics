@@ -6,6 +6,7 @@ var score = 0;
 var currentLevel = 1;
 var isDecimal = false;
 var resultSheet = [];
+var tempAnswer = 0;
 
 function initTimerGame(){
     //load gameFile
@@ -128,8 +129,8 @@ function mDown(obj){
 
 function checkAnswer(){  
     var answerString = parseFloat($("displayBox").innerHTML);
-    var questionString = $("questionBox").innerHTML;
-    var answer = eval(questionString);
+    //var questionString = $("questionBox").innerHTML;
+    var answer = tempAnswer;
     //check if correct with consideration to sign of answer
     if(($("flipper").innerHTML == '+')&&(answerString == answer)){
         isCorrect();
@@ -143,7 +144,7 @@ function checkAnswer(){
 function isCorrect(){
     var q = $("questionBox").innerHTML;
     var a = $("displayBox").innerHTML;
-    var resultSheetString = {"question":q, 'answer':a, "correct":"true"};
+    var resultSheetString = {"question":q, "answer":a, "correct":"correct"};
     alert(JSON.stringify(resultSheetString));
     resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Correct";
@@ -255,93 +256,112 @@ function genAdd(difficulty){
             alert("error generating addition question");
     }
     var ansString = num1 + "+" + num2;
+    tempAnswer = num1+num2;
     return ansString;
 }
 
 function genSub(difficulty){
     switch(difficulty) {
         case 1:
-            
+            num1 = Math.floor((Math.random() * 10)+5);
+            num2 = Math.floor(Math.random() * 5);
         break;
                     
         case 2:
-            
+            num1 = Math.floor(Math.random() * 10);
+            num2 = Math.floor(Math.random() * 10);
         break;
                         
         case 3:
-            
+            num1 = Math.floor(5+Math.random() * 20);
+            num2 = Math.floor(5+Math.random() * 20);
         break;
                     
         case 4:
-            
+            num1 = Math.floor(20+Math.random() * 100);
+            num2 = Math.floor(20+Math.random() * 100);
         break;
                         
         case 5:
-            
+            num1 = Math.floor(1000+Math.random() * 4000);
+            num2 = Math.floor(1000+Math.random() * 4000);
         break;
                         
         default:
             alert("error generating sub question");
     }
-    
+    var ansString = num1 + "-" + num2;
+    tempAnswer = num1+num2;
     return ansString;
 }
 
 function genX(difficulty){
     switch(difficulty) {
         case 1:
-            
+            num1 = Math.floor(Math.random() * 5);
+            num2 = Math.floor(Math.random() * 5);
         break;
                     
         case 2:
-            
+            num1 = Math.floor(Math.random() * 10);
+            num2 = Math.floor(Math.random() * 10);
         break;
                         
         case 3:
-            
+            num1 = Math.floor((5+Math.random() * 15));
+            num2 = Math.floor((5+Math.random() * 15));
         break;
                     
         case 4:
-            
+            num1 = Math.floor((5+Math.random() * 20));
+            num2 = Math.floor((5+Math.random() * 20));
         break;
                         
         case 5:
-            
+            num1 = Math.floor((5+Math.random() * 25));
+            num2 = Math.floor((5+Math.random() * 25));
         break;
                         
         default:
             alert("error generating multiplication question");
     }
-    
+    var ansString = num1 + "*" + num2;
+    tempAnswer = num1+num2;
     return ansString;
 }
 
 function genDiv(difficulty){
     switch(difficulty) {
         case 1:
-            
+            num1 = Math.floor(Math.random() * 10);
+            num2 = Math.floor((Math.random() * 2)+1);
         break;
                     
         case 2:
-            
+            num2 = Math.floor(Math.random() * 10);
+            num1 = Math.floor((Math.random() * 2)+1);
         break;
                         
         case 3:
-            
+            num2 = Math.floor(Math.random() * 10);
+            num1 = Math.floor((Math.random() * 5)+1);
         break;
                     
         case 4:
-            
+            num2 = Math.floor(Math.random() * 10);
+            num1 = Math.floor((Math.random() * 5)+1)/2;
         break;
                         
         case 5:
-            
+            num2 = Math.floor(Math.random() * 20);
+            num1 = Math.floor((Math.random() * 5)+1)/2;
         break;
                         
         default:
             alert("error generating div question");
     }
-    
+    var ansString = num1 + "/" + num2;
+    tempAnswer = num1+num2;
     return ansString;
 }
 
@@ -370,36 +390,43 @@ function genRoot(difficulty){
         default:
             alert("error generating root question");
     }
-    
+    var ansString = "feature unavailable";
+    tempAnswer = num1+num2;
     return ansString;
 }
 
 function genExp(difficulty){
     switch(difficulty) {
         case 1:
-            
+            num1 = Math.floor(Math.random() * 2);
+            num2 = Math.floor(Math.random() * 2);
         break;
                     
         case 2:
-            
+            num1 = 2
+            num2 = Math.floor(Math.random() * 4);
         break;
                         
         case 3:
-            
+            num1 = 2
+            num2 = Math.floor(Math.random() * 10);
         break;
                     
         case 4:
-            
+            num1 = 3
+            num2 = Math.floor(Math.random() * 4);
         break;
                         
         case 5:
-            
+            num1 = 3
+            num2 = Math.floor(Math.random() * 8);
         break;
                         
         default:
             alert("error generating exp question");
     }
-    
+    var ansString = num1 + "^" + num2;
+    tempAnswer = num1+num2;
     return ansString;
 }
 

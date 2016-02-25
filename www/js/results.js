@@ -11,6 +11,11 @@ function retry(){
 }
 
 function gohome(){
+    saveScore();
     window.location.href='main.html';
+}
+
+function saveScore(){
+    var score = localStorage.getItem("resultScore");
 }
 

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>   
+    <head>
+        <meta charset="utf-8">
+        <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+        <title>Arithmerobics</title>
+        
+        <meta name="description" content="Fun with practicing math stuff">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/chooser.js"></script>
+        <script>
+            initCustomGame();
+            
+        </script>
+    </head>
+    <body>
+        <table style="width:100%" align="center">
+                    <tr> 
+                        <td colspan="4">Custom Game</td>
+                    </tr>
+                    <tr>
+                        <td id="optionTimer" onmouseup="chooseGameMode(this, 'timer')">Timer</td>
+                        <td id="optionStrikes" onmouseup="chooseGameMode(this, 'strikes')">3Strikes</td>
+                        <td id="optionFree" onmouseup="chooseGameMode(this, 'free')">Free</td>
+                    </tr>
+                    <tr>
+                        <td colspan="1" onmouseup="goHome()">Home</td>
+                        <td colspan="2" onmouseup="play()">Play</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Addition</td>
+                        <td onmouseup="tap(this, 'add')" id = 'add'>Select</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Subtraction</td>
+                        <td onmouseup="tap(this, 'sub')" id = 'sub'>Select</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Multiplication</td>
+                        <td onmouseup="tap(this, 'x')" id = 'x'>Select</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Division</td>
+                        <td onmouseup="tap(this, 'div')" id = 'div'>Select</td>
+                    </tr>
+
+                    
+                    
+            
+                    
+                </table>
+        <script>
+            resetColors();
+            refreshGameModeOptionColour();
+        </script>
+    </body>
+</html>

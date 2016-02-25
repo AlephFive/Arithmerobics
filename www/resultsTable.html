@@ -1,0 +1,57 @@
+<html>
+<head>
+</head>
+    
+    <body>
+        
+        <table style="width:100%" align="right">
+            <td id= "questions" style="width:45%"></td>
+            <td id= "answers" style="width:45%"></td>
+            <td id= "validity" style="width:10%"></td>
+        </table>
+        
+        <script>
+            resultData = JSON.parse(localStorage.getItem("results"));
+            var run = true;
+            var i = 0;
+            
+            var getCorrect;
+                if(localStorage.lastMode != "timer"){
+                    getCorrect = true;
+                } 
+                else{
+                    getCorrect = false;
+                }
+            
+            var questionString = "";
+            var answerString = "";
+            var correctString = "";
+            
+            
+            while(run){
+                if(resultData[i].question == null){
+                    run = false;
+                    break;
+                }
+                questionString = questionString + "<br>" resultData[i].question;
+                
+                answerString = answerString + "<br>"
+                resultData[i].answer;
+                
+                if(getCorrect){
+                    correctString = correctString + "<br>" + resultData[i].correct;
+                }
+                
+                i++;
+            }
+            
+            document.getElementById("questions").innerHTML = questionString;
+            
+            document.getElementById("answers").innerHTML = answerString;
+            
+            document.getElementById("validity").innerHTML = correctString;
+            
+            
+        </script>
+    </body>
+</html>
