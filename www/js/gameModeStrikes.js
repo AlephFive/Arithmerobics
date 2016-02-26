@@ -110,7 +110,7 @@ function isCorrect(){
     var q = $("questionBox").innerHTML;
     var a = $("displayBox").innerHTML;
     var resultSheetString = {"question":q, 'answer':a, "correct":"true"};
-    alert(JSON.stringify(resultSheetString));
+    //alert(JSON.stringify(resultSheetString));
     resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Correct";
     newQuestion();
@@ -121,7 +121,7 @@ function isInCorrect(){
     var q = $("questionBox").innerHTML;
     var a = $("displayBox").innerHTML;
     var resultSheetString = {"question":q, 'answer':a, "correct":"false"};
-    alert(JSON.stringify(resultSheetString));
+    //alert(JSON.stringify(resultSheetString));
     resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Incorrect";
     newQuestion();
@@ -135,12 +135,15 @@ function incrementScore(number){
 }
 
 function incrementStrikeCounter(num){
+    
     if ($("strikeCounter").innerHTML == 3){
         endGame();
     }
     else{
         numStrikes++;
     }
+    
+    $("strikeCounter").innerHTML = numStrikes;
 }
 
 function endGame(){

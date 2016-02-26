@@ -110,7 +110,7 @@ function isCorrect(){
     var q = $("questionBox").innerHTML;
     var a = $("displayBox").innerHTML;
     var resultSheetString = {"question":q, 'answer':a, "correct":"true"};
-    alert(JSON.stringify(resultSheetString));
+    //alert(JSON.stringify(resultSheetString));
     resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Correct";
     newQuestion();
@@ -121,7 +121,7 @@ function isInCorrect(){
     var q = $("questionBox").innerHTML;
     var a = $("displayBox").innerHTML;
     var resultSheetString = {"question":q, 'answer':a, "correct":"false"};
-    alert(JSON.stringify(resultSheetString));
+    //alert(JSON.stringify(resultSheetString));
     resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Incorrect";
     newQuestion();
@@ -152,13 +152,19 @@ function endGame(){
 
 function newQuestion(){
     updateLevel();
+    //alert("level update");
     var qString = "";
     //get gamefile
     var randInt = getRandomInt(0, gameFile.length-1);
+    //alert(randInt);
     var toGenerate = gameFile[randInt].gamemode;
+    //alert(toGenerate);
     
     if(toGenerate == "add"){
+        //alert("in if");
+        //alert(currentLevel);
         qString = genAdd(currentLevel);
+        //alert();
     }
     else if(toGenerate == "sub"){
         qString = genSub(currentLevel);
@@ -211,6 +217,7 @@ function getRandomInt(min, max){
 function genAdd(difficulty){
     var num1 = 0;
     var num2 = 0;
+    //alert();
     <!--Generate-->
     switch(difficulty) {
         case 1:
@@ -241,7 +248,9 @@ function genAdd(difficulty){
         default:
             alert("error generating addition question");
     }
+    //alert(tempAnswer);
     var ansString = num1 + "+" + num2;
+    //alert(ansString);
     tempAnswer = num1+num2;
     return ansString;
 }

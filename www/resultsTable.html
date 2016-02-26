@@ -1,5 +1,10 @@
 <html>
+    
 <head>
+    <script>
+        var temp = JSON.parse(localStorage.getItem("results"));
+        document.getElementById("answers").innerHTML = temp; 
+    </script>
 </head>
     
     <body>
@@ -28,17 +33,17 @@
             var correctString = "";
             
             
-            while(run){
-                if(resultData[i].question == null){
+            while(run == true){
+                if(i == resultData.length){
                     run = false;
                     break;
                 }
-                questionString = questionString + "<br>" resultData[i].question;
                 
-                answerString = answerString + "<br>"
-                resultData[i].answer;
+                questionString = questionString + "<br>" + resultData[i].question;
                 
-                if(getCorrect){
+                answerString = answerString + "<br>" + resultData[i].answer;
+                
+                if(getCorrect == true){
                     correctString = correctString + "<br>" + resultData[i].correct;
                 }
                 

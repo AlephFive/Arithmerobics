@@ -8,12 +8,13 @@
         <meta name="description" content="Game mode timer">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/jquery-2.1.4.min.js"></script>
-        <script type="text/javascript" src="js/gameModeStrikes.js"></script>
+        <script type="text/javascript" src="js/gameModeFree.js"></script>
         <script>
             
             //alert("in headscript");
             //alert("set isdeckbbhbhkbkb");
             initFreeGame();
+            //alert("init complete");
             
             
         </script>
@@ -25,10 +26,10 @@
                 <table style="width:100%" align="center">
                     <tr>
                         <td id="scoreBox">0</td>
-                        <td colspan="3" id="strikeCounter"></td>
+                        <td colspan="3" onmousedown="endGame()">Exit</td>
                     </tr>
                     <tr>
-                        <td colspan="4" onmousedown="endGame()">Exit</td>
+                        <td colspan="4" id="questionBox"></td>
                         
                     </tr>
                     <tr>
@@ -66,9 +67,9 @@
         <script>
 
             
-            
+            //alert("b4 q complete");
             newQuestion();
-            
+            //alert("q complete");
         </script>
     </body>
 </html>

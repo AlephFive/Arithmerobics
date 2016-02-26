@@ -41,7 +41,7 @@ function initTimerGame(){
 function StartCounter(){
 
     var myCounter = new Countdown({  
-        seconds: 10,  // number of seconds to count down
+        seconds: 60,  // number of seconds to count down
         onUpdateStatus: function(sec){
             console.log(sec);
             $("timer").innerHTML = sec;
@@ -145,7 +145,7 @@ function isCorrect(){
     var q = $("questionBox").innerHTML;
     var a = $("displayBox").innerHTML;
     var resultSheetString = {"question":q, "answer":a, "correct":"correct"};
-    alert(JSON.stringify(resultSheetString));
+    //alert(JSON.stringify(resultSheetString));
     resultSheet.push(resultSheetString);
     $("displayBox").innerHTML = "Correct";
     newQuestion();
@@ -161,7 +161,12 @@ function endGame(){
     //save score info to local storage to be displayed in results page.
     localStorage.setItem("results", JSON.stringify(resultSheet));
     localStorage.setItem("resultScore", score);
+    updateDataBase();
     window.location.href = 'results.html';
+}
+
+function updateDataBase(){
+    
 }
 
 function newQuestion(){

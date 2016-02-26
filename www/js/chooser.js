@@ -1,18 +1,25 @@
 function $(x){return document.getElementById(x);}
 
-var customGameFile = localStorage.getItem("customGame");
-    
+var customGameFile = JSON.parse(localStorage.getItem("customGame"));
+    //alert(customGameFile + "firstrun");
 
 function initCustomGame(){
+    customGameFile = localStorage.getItem("customGame");
     if(customGameFile == null){
+        //alert("is null");
         customGameFile = [
             {"gamemode":"add", "run":"false"},
             {"gamemode":"sub", "run":"false"},
             {"gamemode":"x", "run":"false"},
             {"gamemode":"div", "run":"false"}  
         ];
+        alert("created c");
+        localStorage.setItem("customGame", JSON.stringify(customGameFile));
+        
+        //alert(localStorage.getItem("customGame"));
     }
     else{
+        //alert("is");
         customGameFile = JSON.parse(localStorage.getItem("customGame"));
     }
 }
@@ -23,17 +30,23 @@ function tap(obj, gameType){
         
         if(gameType == 'add'){
             customGameFile[0].run = "true";
+            //alert(gameType);
         }
         if(gameType == 'sub'){
             customGameFile[1].run = "true";
+            //alert(gameType);
         }
         if(gameType == 'x'){
             customGameFile[2].run = "true";
+            //alert(gameType);
         }
         if(gameType == 'div'){
             customGameFile[3].run = "true";
+            //alert(gameType);
         }
+        localStorage.setItem("customGame", JSON.stringify(customGameFile));
         
+        customGameFile = JSON.parse(localStorage.getItem("customGame"));
         
         obj.innerHTML = "Selected"
         
@@ -54,7 +67,9 @@ function tap(obj, gameType){
         if(gameType == 'div'){
             customGameFile[3].run = "false";
         }
+        localStorage.setItem("customGame", JSON.stringify(customGameFile));
         
+        customGameFile = JSON.parse(localStorage.getItem("customGame"));
         obj.innerHTML = "Select"
     }
     
@@ -113,13 +128,13 @@ function resetColors(){
 }
 
 function goHome(){
-    localStorage.setItem("customGame") = JSON.stringify(customGameFile);
+    localStorage.setItem("customGame", JSON.stringify(customGameFile));
     
     window.location.href='main.html';
 }
 
 function play(){
-    localStorage.setItem("customGame") = JSON.stringify(customGameFile);
+    localStorage.setItem("customGame", JSON.stringify(customGameFile));
     
     localStorage.setItem("gameDefinition", customGameFile);
     
@@ -165,4 +180,10 @@ function refreshGameModeOptionColour(){
     }
     //alert("refreshGameModeOptionColour sucess");
 
+}
+
+function chooseGameMode(obj, mode){
+    obj.style.backgroundColor="#1ec5e5";
+    localStorage.lastMode = mode;
+    refreshGameModeOptionColour();
 }

@@ -49,21 +49,30 @@ function refreshGameModeOptionColour(){
 function initDatabase(){
     //alert("initDatabase");
     //get current date
-    var d = new Date(year, month, day);
-    d.setDate(d.getDate() - 1);
+    var d = new Date();
+    d.setDate(d.getDate() - 100);
+    basicDate = dateToString(d);
     
     //initialise the database using lots of zeros
     var initDataBase = [
-        {"date":d, "tAdd":"0", "sAdd":"0", "tSub":"0", "sSub":"0", "tX":"0", "sX":"0", "tDiv":"0", "sDiv":"0", "tRoot":"0", "sRoot":"0", "tExp":"0", "sExp":"0", "extraPoints":"0"}
+        {"date":basicDate, "tAdd":"0", "sAdd":"0", "tSub":"0", "sSub":"0", "tX":"0", "sX":"0", "tDiv":"0", "sDiv":"0", "tRoot":"0", "sRoot":"0", "tExp":"0", "sExp":"0", "extraPoints":"0"}
     ];
     
-    for(i = 0; i < 1; i++){
+    var initBasicDataBase = [
+        {"date":basicDate, "totalPoints":"0"}
+    ];
+    
+    for(i = 0; i < 100; i++){
         d.setDate(d.getDate() + 1);
+        basicDate = dateToString(d);
         
-        initDataBase.push({"date":d, "tAdd":"0", "sAdd":"0", "tSub":"0", "sSub":"0", "tX":"0", "sX":"0", "tDiv":"0", "sDiv":"0", "tRoot":"0", "sRoot":"0", "tExp":"0", "sExp":"0", "extraPoints":"0"});
+        initDataBase.push({"date":basicDate, "tAdd":"0", "sAdd":"0", "tSub":"0", "sSub":"0", "tX":"0", "sX":"0", "tDiv":"0", "sDiv":"0", "tRoot":"0", "sRoot":"0", "tExp":"0", "sExp":"0", "extraPoints":"0"});
+        
+        initBasicDataBase.push({"date":basicDate, "totalPoints":"0"});
     }
     
-    localStorage.setItem("mainData", initDataBase);
+    localStorage.setItem("mainData", JSON.stringify(initDataBase));
+    localStorage.setItem("basicData", JSON.stringify(initBasicDataBase));
     
     
     //init gameFiles
@@ -84,6 +93,14 @@ function prepGame(gamefile){
     if(localStorage.lastMode == "free"){
         window.location.href="gamePageFree.html"
     }
+}
+
+function dateToString(date){
+    var day = date.getDate();
+    var month = date.getMonth();
+    var year = date.getYear();
+    var stringFormat =  ""+day+month+year;
+    return stringFormat;
 }
 
 
